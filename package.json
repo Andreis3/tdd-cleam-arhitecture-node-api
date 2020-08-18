@@ -2,6 +2,9 @@
   "name": "tdd-clean-architecture-node-api",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Andreis3 <andrei.as3@hotmail.com>",
-  "license": "MIT"
+  "author": "Andrei Santos <andrei.as3@hotmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "git-commit-msg-linter": "^2.4.4"
+  }
 }
