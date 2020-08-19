@@ -27,6 +27,7 @@
   },
   "scripts": {
     "test": "jest",
+    "test:unit": "jest -c jest.config.unit.js --runInBand",
     "test:staged": "jest"
   }
 }
