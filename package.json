@@ -28,6 +28,6 @@
   "scripts": {
     "test": "jest",
     "test:unit": "jest -c jest.config.unit.js --runInBand",
-    "test:staged": "jest"
+    "test:staged": "jest -c jest.config.unit.js --runInBand"
   }
 }
