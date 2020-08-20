@@ -1,5 +1,6 @@
+import { IHttpRequest, IHttpResponse } from '../protocols/IHttpRequestResponse';
 export class SignUpController {
-    handle(httpRequest: any): any {
+    handle(httpRequest: IHttpRequest): IHttpResponse {
         const { name, email } = httpRequest.body;
 
         if (!name) {
