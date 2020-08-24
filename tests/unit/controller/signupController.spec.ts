@@ -1,7 +1,5 @@
 import { SignUpController } from '../../../src/presentation/controllers/signupController';
-import { MissingParamError } from '../../../src/presentation/errors/missingParamError';
-import { InvalidParamError } from '../../../src/presentation/errors/invalidParamError';
-import { ServerError } from '../../../src/presentation/errors/serverError';
+import { MissingParamError, InvalidParamError, ServerError } from '../../../src/presentation/errors';
 import { IEmailValidator } from '../../../src/presentation/protocols/IEmailValidator';
 
 interface ISutTypes {
