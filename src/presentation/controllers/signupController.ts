@@ -1,6 +1,6 @@
 import { IHttpRequest, IHttpResponse, IEmailValidator, IController, IAddAccount } from './signup/signupProtocols';
 import { MissingParamError, InvalidParamError } from '../errors';
-import { badRequest, serverError } from '../helpers/httpHelpers';
+import { badRequest, serverError, ok } from '../helpers/httpHelpers';
 export class SignUpController implements IController {
     private readonly emailValidator: IEmailValidator;
     private readonly addAccount: IAddAccount;
@@ -37,10 +37,7 @@ export class SignUpController implements IController {
                 password,
             });
 
-            return {
-                statusCode: 200,
-                body: account,
-            };
+            return ok(account);
         } catch (error) {
             return serverError();
         }
