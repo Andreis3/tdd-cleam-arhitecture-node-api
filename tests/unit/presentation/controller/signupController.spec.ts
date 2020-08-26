@@ -1,11 +1,11 @@
-import { SignUpController } from '../../../src/presentation/controllers/signupController';
-import { MissingParamError, InvalidParamError, ServerError } from '../../../src/presentation/errors';
+import { SignUpController } from '../../../../src/presentation/controllers/signupController';
+import { MissingParamError, InvalidParamError, ServerError } from '../../../../src/presentation/errors';
 import {
     IEmailValidator,
     IAccountModel,
     IAddAccount,
     IAddAccountModel,
-} from '../../../src/presentation/controllers/signup/signupProtocols';
+} from '../../../../src/presentation/controllers/signup/signupProtocols';
 
 const makeEmailValidator = (): IEmailValidator => {
     class EmailValidatorStub implements IEmailValidator {
