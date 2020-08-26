@@ -1,12 +1,12 @@
 module.exports = {
-    // roots: ['<rootDir>/src'],
+    roots: ['<rootDir>'],
     collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
 
     // The directory where Jest should output its coverage files
-    coverageDirectory: 'coverage',
+    coverageDirectory: 'tests/coverage',
 
     // Indicates which provider should be used to instrument code for coverage
-    coverageProvider: 'v8',
+    // coverageProvider: 'v8',
 
     // The test environment that will be used for testing
     testEnvironment: 'node',
@@ -15,5 +15,10 @@ module.exports = {
     transform: {
         '.+\\.ts$': 'ts-jest',
     },
-    testMatch: ['**/tests/**/*.spec.ts'],
+    // testMatch: ['**/tests/**/*.spec.ts'],
+
+    modulePathIgnorePatterns: [
+        '<rootDir>/src/presentation/protocols/index.ts',
+        '<rootDir>/src/presentation/controllers/signup/signupProtocols.ts',
+    ],
 };
