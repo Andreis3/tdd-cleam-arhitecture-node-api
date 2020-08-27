@@ -2,7 +2,7 @@ import { IAddAccount, IAddAccountModel } from '../../../domain/use-cases/IAddAcc
 import { IAccountModel } from '../../../domain/models/account';
 import { IEncrypter } from '../../protocols/IEncrypter';
 
-export class DbAccount implements IAddAccount {
+export class DbAddAccount implements IAddAccount {
     private readonly encrypter: IEncrypter;
     constructor(encrypter: IEncrypter) {
         this.encrypter = encrypter;
