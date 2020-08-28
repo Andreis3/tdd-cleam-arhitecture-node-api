@@ -1,5 +1,5 @@
 import { DbAddAccount } from '../../../../../src/data/use-cases/add-account/dbAddAccount';
-import { IEncrypter } from '../../../../../src/data/protocols/IEncrypter';
+import { IEncrypter } from '../../../../../src/data/use-cases/add-account/dbAccountProtocols';
 
 interface ISutTypes {
     sut: DbAddAccount;
