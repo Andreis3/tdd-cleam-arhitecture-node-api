@@ -16,7 +16,12 @@
     "docker:container": "docker run --name clean-node-api -p 3000:3000 -d clean-node-api",
     "docker:clean-node-api-db": "docker run --name clean-node-api-db -p 27017:27017 -d -t mongo"
   },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "validator": "^13.1.1"
+  },
   "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
     "@types/jest": "^26.0.10",
     "@types/node": "^14.6.0",
     "@types/validator": "^13.1.0",
@@ -37,8 +42,6 @@
     "prettier": "^2.0.5",
     "ts-jest": "^26.2.0",
     "typescript": "^3.9.7"
-  },
-  "dependencies": {
-    "validator": "^13.1.1"
   }
+
 }
