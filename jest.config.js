@@ -21,4 +21,5 @@ module.exports = {
         '<rootDir>/src/presentation/protocols/index.ts',
         '<rootDir>/src/presentation/controllers/signup/signupProtocols.ts',
     ],
+    preset: '@shelf/jest-mongodb',
 };
