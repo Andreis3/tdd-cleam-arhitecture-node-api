@@ -6,7 +6,7 @@ module.exports = {
   "prettier/@typescript-eslint",
   "plugin:prettier/recommended"
 ],
-plugins: ['prettier'],
+plugins: ["@typescript-eslint", 'prettier'],
 globals: {
   Atomics: 'readonly',
   SharedArrayBuffer: 'readonly',
@@ -22,6 +22,7 @@ globals: {
   rules: {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
+    "eslint-disable prettier/prettier": "off",
     "@typescript-eslint/no-new": "off",
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/no-floating-promises": "off",
