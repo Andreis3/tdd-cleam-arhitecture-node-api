@@ -28,6 +28,10 @@ globals: {
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/return-await": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/comma-spacing": "off",
+    "@typescript-eslint/no-unused-expressions": "off",
     "@typescript-eslint/interface-name-prefix": ["error", {"prefixWithI": "always"}]
     //"@typescript-eslint/explicit-function-return-type": "off"
   },
