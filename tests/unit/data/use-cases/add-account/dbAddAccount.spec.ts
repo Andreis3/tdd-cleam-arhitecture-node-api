@@ -9,7 +9,7 @@ import {
 const makeEncrypter = (): IEncrypter => {
     class EncrypterStub implements IEncrypter {
         async encrypt(value: string): Promise<string> {
-            return await new Promise((resolve) => resolve('hashed_password'));
+            return await new Promise(resolve => resolve('hashed_password'));
         }
     }
     return new EncrypterStub();
@@ -24,7 +24,7 @@ const makeAddAccountRepositoryStub = (): IAddAccountRepository => {
                 email: 'valid_email',
                 password: 'hashed_password',
             };
-            return await new Promise((resolve) => resolve(fakeAccount));
+            return await new Promise(resolve => resolve(fakeAccount));
         }
     }
     return new AddAccountRepositoryStub();

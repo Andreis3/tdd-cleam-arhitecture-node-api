@@ -27,7 +27,7 @@ const makeAddAccount = (): IAddAccount => {
                 password: 'valid_password',
             };
 
-            return await new Promise((resolve) => resolve(fakeAccount));
+            return await new Promise(resolve => resolve(fakeAccount));
         }
     }
 
