@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "sucrase-node src/main/server.ts",
+    "dev:server": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/main/server.ts",
     "test:all": "jest --runInBand",
     "test:unitSilent": "jest --runInBand -c jest.config.unit.js --silent --noStackTrace --runInBand",
     "test:unit": "jest -c jest.config.unit.js --runInBand",
@@ -51,6 +52,7 @@
     "sucrase": "^3.16.0",
     "supertest": "^6.0.1",
     "ts-jest": "^26.2.0",
+    "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.9.7"
   }
 }
