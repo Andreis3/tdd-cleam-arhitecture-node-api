@@ -1,16 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
     "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
-    "strictPropertyInitialization": false,
-    "baseUrl": "./src",
-    "allowJs": true,
+    "module": "commonjs",
+    "target": "es2019",
     "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "forceConsistentCasingInFileNames": true
+    "allowJs": true
   }
 }
