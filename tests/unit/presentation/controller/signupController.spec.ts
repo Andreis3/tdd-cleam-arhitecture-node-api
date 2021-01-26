@@ -1,4 +1,4 @@
-import { SignUpController } from '../../../../src/presentation/controllers/signupController';
+import { SignUpController } from '../../../../src/presentation/controllers/signup/signupController';
 import { MissingParamError, InvalidParamError, ServerError } from '../../../../src/presentation/errors';
 import {
     IEmailValidator,

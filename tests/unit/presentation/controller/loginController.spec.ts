@@ -1,8 +1,8 @@
 import { LoginController } from '../../../../src/presentation/controllers/login/loginController';
-import { IEmailValidator } from '../../../../src/presentation/controllers/signup/signupProtocols';
+import { IEmailValidator, IAuthentication } from '../../../../src/presentation/controllers/login/loginProtocols';
 import { InvalidParamError, MissingParamError } from '../../../../src/presentation/errors';
 import { badRequest, serverError, unauthorized } from '../../../../src/presentation/helpers/httpHelpers';
-import { IAuthentication } from '../../../../src/domain/use-cases/IAuthentication';
+import {} from '../../../../src/domain/use-cases/IAuthentication';
 
 const makeEmailValidator = (): IEmailValidator => {
     class EmailValidatorStub implements IEmailValidator {
