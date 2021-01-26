@@ -2,7 +2,6 @@ import { LoginController } from '../../../../src/presentation/controllers/login/
 import { IEmailValidator, IAuthentication } from '../../../../src/presentation/controllers/login/loginProtocols';
 import { InvalidParamError, MissingParamError } from '../../../../src/presentation/errors';
 import { badRequest, serverError, unauthorized } from '../../../../src/presentation/helpers/httpHelpers';
-import {} from '../../../../src/domain/use-cases/IAuthentication';
 
 const makeEmailValidator = (): IEmailValidator => {
     class EmailValidatorStub implements IEmailValidator {
@@ -137,5 +136,22 @@ describe('login Controller', () => {
         const httpResponse = await sut.handle(httpRequest);
 
         expect(httpResponse).toEqual(unauthorized());
+    });
+
+    test('Should return 500 if Authenticate throws', async () => {
+        const { sut, authenticationStub } = makeSut();
+        jest.spyOn(authenticationStub, 'auth').mockReturnValueOnce(
+            new Promise((resolve, reject) => reject(new Error())),
+        );
+
+        const httpRequest = {
+            body: {
+                email: 'any_email@mail.com',
+                password: 'any_password',
+            },
+        };
+        const httpResponse = await sut.handle(httpRequest);
+
+        expect(httpResponse).toEqual(serverError(new Error()));
     });
 });
