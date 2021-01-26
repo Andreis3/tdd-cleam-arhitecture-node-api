@@ -1,7 +1,7 @@
 import { LoginController } from '../../../../src/presentation/controllers/login/loginController';
 import { IEmailValidator } from '../../../../src/presentation/controllers/signup/signupProtocols';
 import { InvalidParamError, MissingParamError } from '../../../../src/presentation/errors';
-import { badRequest, serverError } from '../../../../src/presentation/helpers/httpHelpers';
+import { badRequest, serverError, unauthorized } from '../../../../src/presentation/helpers/httpHelpers';
 import { IAuthentication } from '../../../../src/domain/use-cases/IAuthentication';
 
 const makeEmailValidator = (): IEmailValidator => {
@@ -122,5 +122,20 @@ describe('login Controller', () => {
         await sut.handle(httpRequest);
 
         expect(authSpy).toHaveBeenCalledWith('any_email@mail.com', 'any_password');
+    });
+
+    test('Should return 401 if invalid credentials are provider', async () => {
+        const { sut, authenticationStub } = makeSut();
+        jest.spyOn(authenticationStub, 'auth').mockReturnValueOnce(new Promise(resolve => resolve(null)));
+
+        const httpRequest = {
+            body: {
+                email: 'any_email@mail.com',
+                password: 'any_password',
+            },
+        };
+        const httpResponse = await sut.handle(httpRequest);
+
+        expect(httpResponse).toEqual(unauthorized());
     });
 });
