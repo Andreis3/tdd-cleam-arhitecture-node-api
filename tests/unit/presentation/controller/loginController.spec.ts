@@ -1,7 +1,7 @@
 import { LoginController } from '../../../../src/presentation/controllers/login/loginController';
 import { IEmailValidator, IAuthentication } from '../../../../src/presentation/controllers/login/loginProtocols';
 import { InvalidParamError, MissingParamError } from '../../../../src/presentation/errors';
-import { badRequest, serverError, unauthorized } from '../../../../src/presentation/helpers/httpHelpers';
+import { badRequest, serverError, unauthorized, ok } from '../../../../src/presentation/helpers/httpHelpers';
 
 const makeEmailValidator = (): IEmailValidator => {
     class EmailValidatorStub implements IEmailValidator {
@@ -153,5 +153,19 @@ describe('login Controller', () => {
         const httpResponse = await sut.handle(httpRequest);
 
         expect(httpResponse).toEqual(serverError(new Error()));
+    });
+
+    test('Should return 200 if valid credentials are provider', async () => {
+        const { sut } = makeSut();
+
+        const httpRequest = {
+            body: {
+                email: 'any_email@mail.com',
+                password: 'any_password',
+            },
+        };
+        const httpResponse = await sut.handle(httpRequest);
+
+        expect(httpResponse).toEqual(ok({ accessToken: 'any_token' }));
     });
 });
