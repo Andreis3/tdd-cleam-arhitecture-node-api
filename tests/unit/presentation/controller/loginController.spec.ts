@@ -2,6 +2,7 @@ import { LoginController } from '../../../../src/presentation/controllers/login/
 import { IEmailValidator } from '../../../../src/presentation/controllers/signup/signupProtocols';
 import { InvalidParamError, MissingParamError } from '../../../../src/presentation/errors';
 import { badRequest, serverError } from '../../../../src/presentation/helpers/httpHelpers';
+import { IAuthentication } from '../../../../src/domain/use-cases/IAuthentication';
 
 const makeEmailValidator = (): IEmailValidator => {
     class EmailValidatorStub implements IEmailValidator {
@@ -11,17 +12,30 @@ const makeEmailValidator = (): IEmailValidator => {
     }
     return new EmailValidatorStub();
 };
+
+const makeAuthentication = (): IAuthentication => {
+    class AuthenticationStub implements IAuthentication {
+        async auth(email: string, password: string): Promise<string> {
+            return new Promise(resolve => resolve('any_token'));
+        }
+    }
+    return new AuthenticationStub();
+};
+
 interface ISutTypes {
     sut: LoginController;
     emailValidatorStub: IEmailValidator;
+    authenticationStub: IAuthentication;
 }
 
 const makeSut = (): ISutTypes => {
     const emailValidatorStub = makeEmailValidator();
-    const sut = new LoginController(emailValidatorStub);
+    const authenticationStub = makeAuthentication();
+    const sut = new LoginController(emailValidatorStub, authenticationStub);
     return {
         sut,
         emailValidatorStub,
+        authenticationStub,
     };
 };
 describe('login Controller', () => {
@@ -93,5 +107,20 @@ describe('login Controller', () => {
         const httpResponse = await sut.handle(httpRequest);
 
         expect(httpResponse).toEqual(serverError(new Error()));
+    });
+
+    test('Should call Authentication with correct values', async () => {
+        const { sut, authenticationStub } = makeSut();
+        const authSpy = jest.spyOn(authenticationStub, 'auth');
+
+        const httpRequest = {
+            body: {
+                email: 'any_email@mail.com',
+                password: 'any_password',
+            },
+        };
+        await sut.handle(httpRequest);
+
+        expect(authSpy).toHaveBeenCalledWith('any_email@mail.com', 'any_password');
     });
 });
