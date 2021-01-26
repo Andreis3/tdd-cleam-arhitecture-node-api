@@ -16,7 +16,12 @@ export const serverError = (error: Error): IHttpResponse => ({
     body: new ServerError(error.stack),
 });
 
-export const ok = (data: any): IHttpResponse => ({
+export const create = (data: any): IHttpResponse => ({
     statusCode: 201,
+    body: data,
+});
+
+export const ok = (data: any): IHttpResponse => ({
+    statusCode: 200,
     body: data,
 });

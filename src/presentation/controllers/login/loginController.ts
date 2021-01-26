@@ -1,5 +1,5 @@
 import { IController, IEmailValidator, IHttpRequest, IHttpResponse, IAuthentication } from './loginProtocols';
-import { badRequest, serverError, unauthorized } from '../../helpers/httpHelpers';
+import { badRequest, ok, serverError, unauthorized } from '../../helpers/httpHelpers';
 import { InvalidParamError, MissingParamError } from '../../errors';
 
 export class LoginController implements IController {
@@ -33,6 +33,8 @@ export class LoginController implements IController {
             if (!accessToken) {
                 return unauthorized();
             }
+
+            return ok({ accessToken });
         } catch (error) {
             return serverError(error);
         }
