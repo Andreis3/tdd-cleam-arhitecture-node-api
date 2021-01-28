@@ -6,6 +6,7 @@ import {
     IAddAccount,
     IAddAccountModel,
     IHttpRequest,
+    IValidation,
 } from '../../../../src/presentation/controllers/signup/signupProtocols';
 
 const makeEmailValidator = (): IEmailValidator => {
@@ -16,6 +17,16 @@ const makeEmailValidator = (): IEmailValidator => {
     }
 
     return new EmailValidatorStub();
+};
+
+const makeValidation = (): IValidation => {
+    class ValidationStub implements IValidation {
+        validate(input: any): Error {
+            return null;
+        }
+    }
+
+    return new ValidationStub();
 };
 
 const makeAddAccount = (): IAddAccount => {
@@ -48,16 +59,19 @@ interface ISutTypes {
     sut: SignUpController;
     emailValidatorStub: IEmailValidator;
     addAccountStub: IAddAccount;
+    validationStub: IValidation;
 }
 
 const makeSut = (): ISutTypes => {
     const emailValidatorStub = makeEmailValidator();
     const addAccountStub = makeAddAccount();
-    const sut = new SignUpController(emailValidatorStub, addAccountStub);
+    const validationStub = makeValidation();
+    const sut = new SignUpController(emailValidatorStub, addAccountStub, validationStub);
     return {
         sut,
         emailValidatorStub,
         addAccountStub,
+        validationStub,
     };
 };
 describe('SignUp Controller ', () => {
@@ -210,5 +224,17 @@ describe('SignUp Controller ', () => {
             email: 'valid_email@mail.com',
             password: 'valid_password',
         });
+    });
+
+    test('Should call Validation  with correct value', () => {
+        const { sut, validationStub } = makeSut();
+
+        const addSpy = jest.spyOn(validationStub, 'validate');
+
+        const httpRequest = makeFakeRequest();
+
+        sut.handle(httpRequest);
+
+        expect(addSpy).toHaveBeenCalledWith(httpRequest.body);
     });
 });

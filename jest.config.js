@@ -25,5 +25,6 @@ module.exports = {
         '<rootDir>/src/presentation/protocols/index.ts',
         '<rootDir>/src/presentation/controllers/signup/signupProtocols.ts',
     ],
+    watchPathIgnorePatterns: ['globalConfig'],
     preset: '@shelf/jest-mongodb',
 };
