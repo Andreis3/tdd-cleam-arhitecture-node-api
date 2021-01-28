@@ -8,6 +8,7 @@ import {
     IHttpRequest,
     IValidation,
 } from '../../../../src/presentation/controllers/signup/signupProtocols';
+import { badRequest } from '../../../../src/presentation/helpers/httpHelpers';
 
 const makeEmailValidator = (): IEmailValidator => {
     class EmailValidatorStub implements IEmailValidator {
@@ -236,5 +237,16 @@ describe('SignUp Controller ', () => {
         sut.handle(httpRequest);
 
         expect(addSpy).toHaveBeenCalledWith(httpRequest.body);
+    });
+
+    test('Should return 400 if Validation return an error', async () => {
+        const { sut, validationStub } = makeSut();
+
+        jest.spyOn(validationStub, 'validate').mockReturnValueOnce(new MissingParamError('any_field'));
+
+        const httpResponse = await sut.handle(makeFakeRequest());
+
+        expect(httpResponse.statusCode).toBe(400);
+        expect(httpResponse).toEqual(badRequest(new MissingParamError('any_field')));
     });
 });
