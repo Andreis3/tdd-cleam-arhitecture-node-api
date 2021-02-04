@@ -33,6 +33,7 @@ globals: {
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/comma-spacing": "off",
     "@typescript-eslint/no-unused-expressions": "off",
+    "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/interface-name-prefix": ["error", {"prefixWithI": "always"}]
     //"@typescript-eslint/explicit-function-return-type": "off"
   },
