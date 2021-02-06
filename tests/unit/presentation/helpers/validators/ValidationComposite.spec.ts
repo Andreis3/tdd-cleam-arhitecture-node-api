@@ -2,16 +2,35 @@ import { MissingParamError } from '../../../../../src/presentation/errors';
 import { IValidation } from '../../../../../src/presentation/helpers/validators/IValidation';
 import { ValidationComposite } from '../../../../../src/presentation/helpers/validators/ValidationComposite';
 
+const makeValidation = (): IValidation => {
+    class ValidationStub implements IValidation {
+        validate(input: any): Error {
+            return null;
+        }
+    }
+    return new ValidationStub();
+};
+
+interface ISutTypes {
+    sut: ValidationComposite;
+    validationStub: IValidation;
+}
+
+const makeSut = (): ISutTypes => {
+    const validationStub = makeValidation();
+    const sut = new ValidationComposite([validationStub]);
+    return {
+        sut,
+        validationStub,
+    };
+};
+
 describe('Validation Composite ', () => {
     test('Should return an error if any validation fails', () => {
-        class ValidationStub implements IValidation {
-            validate(input: any): Error {
-                return new MissingParamError('field');
-            }
-        }
+        const { sut, validationStub } = makeSut();
 
-        const validationStub = new ValidationStub();
-        const sut = new ValidationComposite([validationStub]);
+        jest.spyOn(validationStub, 'validate').mockReturnValueOnce(new MissingParamError('field'));
+
         const error = sut.validate({ field: 'any_value' });
         expect(error).toEqual(new MissingParamError('field'));
     });
