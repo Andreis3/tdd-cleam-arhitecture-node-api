@@ -4,6 +4,7 @@ module.exports = {
         '<rootDir>/src/**/*.ts',
         '!<rootDir>/src/main/**',
         '!<rootDir>/src/data/use-cases/add-account/dbAccountProtocols.ts',
+        '!<rootDir>/src/presentation/controllers/login/loginProtocols.ts',
     ],
 
     // The directory where Jest should output its coverage files
