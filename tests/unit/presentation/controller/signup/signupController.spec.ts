@@ -1,13 +1,13 @@
-import { SignUpController } from '../../../../src/presentation/controllers/signup/signupController';
-import { MissingParamError, ServerError } from '../../../../src/presentation/errors';
+import { SignUpController } from '../../../../../src/presentation/controllers/signup/signupController';
+import { MissingParamError, ServerError } from '../../../../../src/presentation/errors';
 import {
     IAccountModel,
     IAddAccount,
     IAddAccountModel,
     IHttpRequest,
     IValidation,
-} from '../../../../src/presentation/controllers/signup/signupProtocols';
-import { badRequest } from '../../../../src/presentation/helpers/httpHelpers';
+} from '../../../../../src/presentation/controllers/signup/signupProtocols';
+import { badRequest } from '../../../../../src/presentation/helpers/httpHelpers';
 
 const makeValidation = (): IValidation => {
     class ValidationStub implements IValidation {
