@@ -1,5 +1,5 @@
 import { IHttpRequest, IHttpResponse, IController, IAddAccount, IValidation } from '../signup/signupProtocols';
-import { badRequest, serverError, create } from '../../helpers/httpHelpers';
+import { badRequest, serverError, create } from '../../helpers/http/httpHelpers';
 export class SignUpController implements IController {
     private readonly addAccount: IAddAccount;
     private readonly validation: IValidation;

@@ -5,7 +5,7 @@ import {
     IValidation,
 } from '../../../../../src/presentation/controllers/login/loginProtocols';
 import { MissingParamError } from '../../../../../src/presentation/errors';
-import { badRequest, serverError, unauthorized, ok } from '../../../../../src/presentation/helpers/httpHelpers';
+import { badRequest, serverError, unauthorized, ok } from '../../../../../src/presentation/helpers/http/httpHelpers';
 
 const makeAuthentication = (): IAuthentication => {
     class AuthenticationStub implements IAuthentication {

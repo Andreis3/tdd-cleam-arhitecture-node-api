@@ -7,7 +7,7 @@ import {
     IHttpRequest,
     IValidation,
 } from '../../../../../src/presentation/controllers/signup/signupProtocols';
-import { badRequest } from '../../../../../src/presentation/helpers/httpHelpers';
+import { badRequest } from '../../../../../src/presentation/helpers/http/httpHelpers';
 
 const makeValidation = (): IValidation => {
     class ValidationStub implements IValidation {
