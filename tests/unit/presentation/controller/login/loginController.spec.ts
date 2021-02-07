@@ -1,6 +1,7 @@
 import { LoginController } from '../../../../../src/presentation/controllers/login/loginController';
 import {
     IAuthentication,
+    IAuthenticationModel,
     IHttpRequest,
     IValidation,
 } from '../../../../../src/presentation/controllers/login/loginProtocols';
@@ -9,7 +10,7 @@ import { badRequest, serverError, unauthorized, ok } from '../../../../../src/pr
 
 const makeAuthentication = (): IAuthentication => {
     class AuthenticationStub implements IAuthentication {
-        async auth(email: string, password: string): Promise<string> {
+        async auth(authentication: IAuthenticationModel): Promise<string> {
             return new Promise(resolve => resolve('any_token'));
         }
     }
@@ -64,7 +65,7 @@ describe('login Controller', () => {
         };
         await sut.handle(httpRequest);
 
-        expect(authSpy).toHaveBeenCalledWith('any_email@mail.com', 'any_password');
+        expect(authSpy).toHaveBeenCalledWith({ email: 'any_email@mail.com', password: 'any_password' });
     });
 
     test('Should return 401 if invalid credentials are provider', async () => {
