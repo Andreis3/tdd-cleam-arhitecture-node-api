@@ -1,5 +1,5 @@
 import { MissingParamError } from '../../../../../src/presentation/errors';
-import { IValidation } from '../../../../../src/presentation/helpers/validators/IValidation';
+import { IValidation } from '../../../../../src/presentation/protocols/IValidation';
 import { ValidationComposite } from '../../../../../src/presentation/helpers/validators/ValidationComposite';
 
 const makeValidation = (): IValidation => {
