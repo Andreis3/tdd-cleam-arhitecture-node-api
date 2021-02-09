@@ -1,5 +1,4 @@
-import { resolve } from 'path';
-import { ILoadAccountByEmailRepository } from '../../../../../src/data/protocols/ILoadAccountByEmailRepository';
+import { ILoadAccountByEmailRepository } from '../../../../../src/data/protocols/db/ILoadAccountByEmailRepository';
 import { DbAuthentication } from '../../../../../src/data/use-cases/authentication/DbAuthenticate';
 import { IAccountModel } from '../../../../../src/domain/models/account';
 import { IAuthenticationModel } from '../../../../../src/domain/use-cases/IAuthentication';

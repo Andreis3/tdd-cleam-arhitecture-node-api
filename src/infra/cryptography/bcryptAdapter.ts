@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { IEncrypter } from '../../data/protocols/IEncrypter';
+import { IEncrypter } from '../../data/protocols/cryptography/IEncrypter';
 export class BcryptAdapter implements IEncrypter {
     private readonly salt: number;
     constructor(salt: number) {
