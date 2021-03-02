@@ -2,10 +2,7 @@ import { InvalidParamError } from '../../errors/Index';
 import { IValidation } from '../../protocols/IValidation';
 
 export class CompareFieldsValidation implements IValidation {
-    private readonly fieldName: string;
-    private readonly fieldToCompareName: string;
-
-    constructor(fieldName: string, fieldToCompareName: string) {
+    constructor(private readonly fieldName: string, private readonly fieldToCompareName: string) {
         this.fieldName = fieldName;
         this.fieldToCompareName = fieldToCompareName;
     }

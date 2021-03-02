@@ -1,10 +1,7 @@
 import { IHttpRequest, IHttpResponse, IController, IAddAccount, IValidation } from './SignupControllerProtocols';
 import { badRequest, serverError, create } from '../../helpers/http/HttpHelpers';
 export class SignUpController implements IController {
-    private readonly addAccount: IAddAccount;
-    private readonly validation: IValidation;
-
-    constructor(addAccount: IAddAccount, validation: IValidation) {
+    constructor(private readonly addAccount: IAddAccount, private readonly validation: IValidation) {
         this.addAccount = addAccount;
         this.validation = validation;
     }

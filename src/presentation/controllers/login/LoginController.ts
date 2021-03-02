@@ -2,10 +2,7 @@ import { IController, IHttpRequest, IHttpResponse, IAuthentication, IValidation 
 import { badRequest, ok, serverError, unauthorized } from '../../helpers/http/HttpHelpers';
 
 export class LoginController implements IController {
-    private readonly validation: IValidation;
-    private readonly authentication: IAuthentication;
-
-    constructor(validation: IValidation, authentication: IAuthentication) {
+    constructor(private readonly validation: IValidation, private readonly authentication: IAuthentication) {
         this.validation = validation;
         this.authentication = authentication;
     }

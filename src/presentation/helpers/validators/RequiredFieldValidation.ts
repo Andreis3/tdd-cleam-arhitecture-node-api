@@ -2,9 +2,7 @@ import { MissingParamError } from '../../errors/Index';
 import { IValidation } from '../../protocols/IValidation';
 
 export class RequiredFieldValidation implements IValidation {
-    private readonly fieldName: string;
-
-    constructor(fieldName: string) {
+    constructor(private readonly fieldName: string) {
         this.fieldName = fieldName;
     }
 

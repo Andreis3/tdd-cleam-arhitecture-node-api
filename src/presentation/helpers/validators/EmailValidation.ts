@@ -3,10 +3,7 @@ import { IEmailValidator } from '../../protocols/IEmailValidator';
 import { IValidation } from '../../protocols/IValidation';
 
 export class EmailValidation implements IValidation {
-    private readonly fieldName: string;
-    private readonly emailValidator: IEmailValidator;
-
-    constructor(fieldName: string, emailValidator: IEmailValidator) {
+    constructor(private readonly fieldName: string, private readonly emailValidator: IEmailValidator) {
         this.fieldName = fieldName;
         this.emailValidator = emailValidator;
     }
