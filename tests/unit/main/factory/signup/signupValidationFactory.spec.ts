@@ -3,10 +3,10 @@ import {
     EmailValidation,
     RequiredFieldValidation,
     ValidationComposite,
-} from '../../../../../src/presentation/helpers/validators';
-import { makeSignupValidation } from '../../../../../src/main/factory/signup/signupValidationFactory';
+} from '../../../../../src/presentation/helpers/validators/Index';
+import { makeSignupValidation } from '../../../../../src/main/factory/signup/SignupValidationFactory';
 import { IValidation } from '../../../../../src/presentation/protocols/IValidation';
-import { IEmailValidator } from '../../../../../src/presentation/protocols';
+import { IEmailValidator } from '../../../../../src/presentation/protocols/Index';
 
 jest.mock('../../../../../src/presentation/helpers/validators/ValidationComposite');
 

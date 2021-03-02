@@ -1,4 +1,4 @@
-import { InvalidParamError } from '../../errors';
+import { InvalidParamError } from '../../errors/Index';
 import { IEmailValidator } from '../../protocols/IEmailValidator';
 import { IValidation } from '../../protocols/IValidation';
 
