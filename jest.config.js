@@ -3,8 +3,10 @@ module.exports = {
     collectCoverageFrom: [
         '<rootDir>/src/**/*.ts',
         '!<rootDir>/src/main/**',
-        '!<rootDir>/src/data/use-cases/add-account/dbAccountProtocols.ts',
-        '!<rootDir>/src/presentation/controllers/login/loginProtocols.ts',
+        '!<rootDir>/src/data/use-cases/add-account/DbAccountProtocols.ts',
+        '!<rootDir>/src/data/use-cases/authentication/DbAuthenticationProtocols.ts',
+        '!<rootDir>/src/presentation/controllers/login/LoginControllerProtocols.ts',
+        '!<rootDir>/src/presentation/controllers/signup/SignupControllerProtocols.ts',
     ],
 
     // The directory where Jest should output its coverage files
