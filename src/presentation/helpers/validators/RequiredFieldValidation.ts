@@ -1,4 +1,4 @@
-import { MissingParamError } from '../../errors/Index';
+import { MissingParamError } from '../../errors';
 import { IValidation } from '../../protocols/IValidation';
 
 export class RequiredFieldValidation implements IValidation {

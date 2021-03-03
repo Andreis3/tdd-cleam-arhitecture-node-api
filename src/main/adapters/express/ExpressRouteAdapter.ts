@@ -1,4 +1,4 @@
-import { IController, IHttpRequest } from '../../../presentation/protocols/Index';
+import { IController, IHttpRequest } from '../../../presentation/protocols';
 import { Request, Response } from 'express';
 
 export const adapterRoute = (controller: IController) => {

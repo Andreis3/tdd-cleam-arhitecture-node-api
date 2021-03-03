@@ -1,5 +1,5 @@
 import { LogControllerDecorator } from '../../../../src/main/decorators/LogControllerDecorator';
-import { IController, IHttpRequest, IHttpResponse } from '../../../../src/presentation/protocols/Index';
+import { IController, IHttpRequest, IHttpResponse } from '../../../../src/presentation/protocols';
 import { serverError } from '../../../../src/presentation/helpers/http/HttpHelpers';
 import { ILogErrorRepository } from '../../../../src/data/protocols/db/log/ILogErrorRepository';
 

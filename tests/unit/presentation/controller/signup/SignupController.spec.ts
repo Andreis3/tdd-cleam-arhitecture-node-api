@@ -1,5 +1,5 @@
 import { SignUpController } from '../../../../../src/presentation/controllers/signup/SignupController';
-import { MissingParamError, ServerError } from '../../../../../src/presentation/errors/Index';
+import { MissingParamError, ServerError } from '../../../../../src/presentation/errors';
 import {
     IAccountModel,
     IAddAccount,

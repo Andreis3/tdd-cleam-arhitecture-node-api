@@ -5,7 +5,7 @@ import {
     IHttpRequest,
     IValidation,
 } from '../../../../../src/presentation/controllers/login/LoginControllerProtocols';
-import { MissingParamError } from '../../../../../src/presentation/errors/Index';
+import { MissingParamError } from '../../../../../src/presentation/errors';
 import { badRequest, serverError, unauthorized, ok } from '../../../../../src/presentation/helpers/http/HttpHelpers';
 
 const makeAuthentication = (): IAuthentication => {
