@@ -7,7 +7,9 @@
   "scripts": {
     "start": "node dist/main/Server.js",
     "build": "rimraf dist && tsc",
+    "debug": "node --inspect=0.0.0.0:9222 --nolazy dist/main/Server.js",
     "up": "npm run build && docker-compose up -d",
+    "up:debug": "npm run build && docker-compose -f \"docker-compose-debug.yml\" up -d",
     "stop": "docker-compose down",
     "dev:server": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/main/server.ts",
     "test:all": "jest --runInBand",
