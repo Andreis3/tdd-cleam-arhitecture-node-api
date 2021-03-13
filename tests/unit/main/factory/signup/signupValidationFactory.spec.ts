@@ -4,7 +4,7 @@ import {
     RequiredFieldValidation,
     ValidationComposite,
 } from '../../../../../src/presentation/helpers/validators';
-import { makeSignupValidation } from '../../../../../src/main/factory/signup/SignupValidationFactory';
+import { makeSignupValidation } from '../../../../../src/main/factory/controllers/signup/SignupValidationFactory';
 import { IValidation } from '../../../../../src/presentation/protocols/IValidation';
 import { IEmailValidator } from '../../../../../src/presentation/protocols';
 
