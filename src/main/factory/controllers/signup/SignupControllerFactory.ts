@@ -2,7 +2,7 @@ import { SignUpController } from '../../../../presentation/controllers/signup/Si
 import { IController } from '../../../../presentation/protocols';
 import { makeSignupValidation } from './SignupValidationFactory';
 import { makeDbAuthentication } from '../../use-cases/db-authentication/DbAuthenticateFactory';
-import { makeDbAddAccount } from '../../use-cases/add-account/db-add-account-factory';
+import { makeDbAddAccount } from '../../use-cases/add-account/DbAddAccountFactory';
 import { makeLogControllerDecorator } from '../../decorators/logs/LogControllerDecoratorFactory';
 
 export const makeSignupController = (): IController => {
