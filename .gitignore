@@ -119,3 +119,4 @@ globalConfig.json
 
 data
 !src/data
+!tests/unit/data
