@@ -6,6 +6,8 @@ import {
     IAddAccountModel,
     IHttpRequest,
     IValidation,
+    IAuthentication,
+    IAuthenticationModel,
 } from '../../../../../src/presentation/controllers/signup/SignupControllerProtocols';
 import { badRequest } from '../../../../../src/presentation/helpers/http/HttpHelpers';
 
@@ -36,6 +38,15 @@ const makeAddAccount = (): IAddAccount => {
     return new AddAccountStub();
 };
 
+const makeAuthentication = (): IAuthentication => {
+    class AuthenticationStub implements IAuthentication {
+        async auth(authentication: IAuthenticationModel): Promise<string> {
+            return new Promise(resolve => resolve('any_token'));
+        }
+    }
+    return new AuthenticationStub();
+};
+
 const makeFakeRequest = (): IHttpRequest => ({
     body: {
         name: 'any_name',
@@ -49,16 +60,19 @@ interface ISutTypes {
     sut: SignUpController;
     addAccountStub: IAddAccount;
     validationStub: IValidation;
+    authenticationStub: IAuthentication;
 }
 
 const makeSut = (): ISutTypes => {
     const addAccountStub = makeAddAccount();
     const validationStub = makeValidation();
-    const sut = new SignUpController(addAccountStub, validationStub);
+    const authenticationStub = makeAuthentication();
+    const sut = new SignUpController(addAccountStub, validationStub, authenticationStub);
     return {
         sut,
         addAccountStub,
         validationStub,
+        authenticationStub,
     };
 };
 describe('SignUp Controller ', () => {
@@ -124,5 +138,20 @@ describe('SignUp Controller ', () => {
 
         expect(httpResponse.statusCode).toBe(400);
         expect(httpResponse).toEqual(badRequest(new MissingParamError('any_field')));
+    });
+
+    test('Should call Authentication with correct values', async () => {
+        const { sut, authenticationStub } = makeSut();
+        const authSpy = jest.spyOn(authenticationStub, 'auth');
+
+        const httpRequest = {
+            body: {
+                email: 'any_email@mail.com',
+                password: 'any_password',
+            },
+        };
+        await sut.handle(httpRequest);
+
+        expect(authSpy).toHaveBeenCalledWith({ email: 'any_email@mail.com', password: 'any_password' });
     });
 });
