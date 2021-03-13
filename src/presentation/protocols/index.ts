@@ -1,3 +1,3 @@
 export * from './IController';
-export * from './IEmailValidator';
+export * from '../../validation/protocols/IEmailValidator';
 export * from './IHttpRequestResponse';

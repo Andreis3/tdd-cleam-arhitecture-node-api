@@ -1,4 +1,4 @@
-import { EmailValidation } from '../../../../../src/presentation/helpers/validators/EmailValidation';
+import { EmailValidation } from '../../../../../src/validation/validators/EmailValidation';
 import { InvalidParamError } from '../../../../../src/presentation/errors';
 import { IEmailValidator } from '../../../../../src/presentation/controllers/signup/SignupControllerProtocols';
 
