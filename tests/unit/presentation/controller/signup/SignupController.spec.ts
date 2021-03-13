@@ -1,5 +1,5 @@
 import { SignUpController } from '../../../../../src/presentation/controllers/signup/SignupController';
-import { MissingParamError, ServerError } from '../../../../../src/presentation/errors';
+import { EmailInUseError, MissingParamError, ServerError } from '../../../../../src/presentation/errors';
 import {
     IAccountModel,
     IAddAccount,
@@ -9,7 +9,7 @@ import {
     IAuthentication,
     IAuthenticationModel,
 } from '../../../../../src/presentation/controllers/signup/SignupControllerProtocols';
-import { badRequest, serverError } from '../../../../../src/presentation/helpers/http/HttpHelpers';
+import { badRequest, forbidden, serverError } from '../../../../../src/presentation/helpers/http/HttpHelpers';
 
 const makeValidation = (): IValidation => {
     class ValidationStub implements IValidation {
@@ -101,6 +101,17 @@ describe('SignUp Controller ', () => {
 
         expect(httpResponse.statusCode).toBe(500);
         expect(httpResponse.body).toEqual(new ServerError('error test'));
+    });
+
+    test('Should return 403 if AddAccount returns null', async () => {
+        const { sut, addAccountStub } = makeSut();
+
+        jest.spyOn(addAccountStub, 'add').mockReturnValueOnce(new Promise(resolve => resolve(null)));
+
+        const httpResponse = await sut.handle(makeFakeRequest());
+
+        expect(httpResponse.statusCode).toBe(403);
+        expect(httpResponse).toEqual(forbidden(new EmailInUseError()));
     });
 
     test('Should return 200 if valid data is provider', async () => {
