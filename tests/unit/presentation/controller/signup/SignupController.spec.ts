@@ -9,7 +9,7 @@ import {
     IAuthentication,
     IAuthenticationModel,
 } from '../../../../../src/presentation/controllers/signup/SignupControllerProtocols';
-import { badRequest } from '../../../../../src/presentation/helpers/http/HttpHelpers';
+import { badRequest, serverError } from '../../../../../src/presentation/helpers/http/HttpHelpers';
 
 const makeValidation = (): IValidation => {
     class ValidationStub implements IValidation {
@@ -153,5 +153,22 @@ describe('SignUp Controller ', () => {
         await sut.handle(httpRequest);
 
         expect(authSpy).toHaveBeenCalledWith({ email: 'any_email@mail.com', password: 'any_password' });
+    });
+
+    test('Should return 500 if Authenticate throws', async () => {
+        const { sut, authenticationStub } = makeSut();
+        jest.spyOn(authenticationStub, 'auth').mockReturnValueOnce(
+            new Promise((resolve, reject) => reject(new Error())),
+        );
+
+        const httpRequest = {
+            body: {
+                email: 'any_email@mail.com',
+                password: 'any_password',
+            },
+        };
+        const httpResponse = await sut.handle(httpRequest);
+
+        expect(httpResponse).toEqual(serverError(new Error()));
     });
 });
