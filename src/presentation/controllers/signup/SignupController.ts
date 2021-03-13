@@ -27,15 +27,15 @@ export class SignUpController implements IController {
 
             const { name, email, password } = httpRequest.body;
 
-            const account = await this.addAccount.add({
+            await this.addAccount.add({
                 name,
                 email,
                 password,
             });
 
-            await this.authentication.auth({ email, password });
+            const accessToken = await this.authentication.auth({ email, password });
 
-            return create(account);
+            return create({ accessToken });
         } catch (error) {
             return serverError(error);
         }
