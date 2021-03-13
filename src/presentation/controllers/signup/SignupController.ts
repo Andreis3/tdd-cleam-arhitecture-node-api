@@ -1,9 +1,21 @@
-import { IHttpRequest, IHttpResponse, IController, IAddAccount, IValidation } from './SignupControllerProtocols';
+import {
+    IHttpRequest,
+    IHttpResponse,
+    IController,
+    IAddAccount,
+    IValidation,
+    IAuthentication,
+} from './SignupControllerProtocols';
 import { badRequest, serverError, create } from '../../helpers/http/HttpHelpers';
 export class SignUpController implements IController {
-    constructor(private readonly addAccount: IAddAccount, private readonly validation: IValidation) {
+    constructor(
+        private readonly addAccount: IAddAccount,
+        private readonly validation: IValidation,
+        private readonly authentication: IAuthentication,
+    ) {
         this.addAccount = addAccount;
         this.validation = validation;
+        this.authentication = authentication;
     }
 
     async handle(httpRequest: IHttpRequest): Promise<IHttpResponse> {
@@ -20,6 +32,8 @@ export class SignUpController implements IController {
                 email,
                 password,
             });
+
+            await this.authentication.auth({ email, password });
 
             return create(account);
         } catch (error) {
