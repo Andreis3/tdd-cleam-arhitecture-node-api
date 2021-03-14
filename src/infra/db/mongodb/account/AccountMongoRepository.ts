@@ -1,6 +1,6 @@
 import { IAddAccountRepository } from '../../../../data/protocols/db/account/IAddAccountRepository';
 import { IAddAccountModel } from '../../../../domain/use-cases/IAddAccount';
-import { IAccountModel } from '../../../../domain/models/AccountModel';
+import { IAccountModel } from '../../../../domain/models/IAccountModel';
 import { MongoHelper } from '../helpers/MongoHelpers';
 import {
     ILoadAccountByEmailRepository,

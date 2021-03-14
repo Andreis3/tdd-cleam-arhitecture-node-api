@@ -23,6 +23,7 @@ globals: {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
     "eslint-disable prettier/prettier": "off",
+    "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/no-new": "off",
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/no-floating-promises": "off",
