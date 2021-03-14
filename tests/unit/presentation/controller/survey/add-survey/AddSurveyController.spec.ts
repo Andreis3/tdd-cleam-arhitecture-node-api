@@ -4,6 +4,11 @@ import {
     IValidation,
 } from '../../../../../../src/presentation/controllers/survey/add-survey/AddSurveyControllerProtocols';
 
+interface ISutTypes {
+    sut: AddSurveyController;
+    validationStub: IValidation;
+}
+
 const makeFakeRequest = (): IHttpRequest => ({
     body: {
         question: 'any_question',
@@ -16,19 +21,31 @@ const makeFakeRequest = (): IHttpRequest => ({
     },
 });
 
+const makeValidation = (): IValidation => {
+    class ValidationStub implements IValidation {
+        validate(input: any): Error {
+            return null;
+        }
+    }
+    return new ValidationStub();
+};
+
+const makeSut = (): ISutTypes => {
+    const validationStub = makeValidation();
+    const sut = new AddSurveyController(validationStub);
+
+    return {
+        sut,
+        validationStub,
+    };
+};
+
 describe('AddSurvey Controller', () => {
     test('Should call Validation with correct values', async () => {
-        class ValidationStub implements IValidation {
-            validate(input: any): Error {
-                return null;
-            }
-        }
+        const { sut, validationStub } = makeSut();
 
-        const validationStub = new ValidationStub();
-        const validateSpy = jest.spyOn(validationStub, 'validate');
-
-        const sut = new AddSurveyController(validationStub);
         const httpRequest = makeFakeRequest();
+        const validateSpy = jest.spyOn(validationStub, 'validate');
         await sut.handle(httpRequest);
 
         expect(validateSpy).toHaveBeenCalledWith(httpRequest.body);
