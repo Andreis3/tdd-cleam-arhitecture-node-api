@@ -1,10 +1,10 @@
-import { LoginController } from '../../../../../src/presentation/controllers/login/LoginController';
+import { LoginController } from '../../../../../src/presentation/controllers/login/login/LoginController';
 import {
     IAuthentication,
     IAuthenticationModel,
     IHttpRequest,
     IValidation,
-} from '../../../../../src/presentation/controllers/login/LoginControllerProtocols';
+} from '../../../../../src/presentation/controllers/login/login/LoginControllerProtocols';
 import { MissingParamError } from '../../../../../src/presentation/errors';
 import { badRequest, serverError, unauthorized, ok } from '../../../../../src/presentation/helpers/http/HttpHelpers';
 

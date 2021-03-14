@@ -6,8 +6,8 @@ import {
     IValidation,
     IAuthentication,
 } from './SignupControllerProtocols';
-import { badRequest, serverError, create, forbidden } from '../../helpers/http/HttpHelpers';
-import { EmailInUseError } from '../../errors';
+import { badRequest, serverError, create, forbidden } from '../../../helpers/http/HttpHelpers';
+import { EmailInUseError } from '../../../errors';
 export class SignUpController implements IController {
     constructor(
         private readonly addAccount: IAddAccount,
