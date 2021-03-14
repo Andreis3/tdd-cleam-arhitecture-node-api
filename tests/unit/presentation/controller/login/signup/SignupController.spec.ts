@@ -1,5 +1,5 @@
-import { SignUpController } from '../../../../../src/presentation/controllers/login/signup/SignupController';
-import { EmailInUseError, MissingParamError, ServerError } from '../../../../../src/presentation/errors';
+import { SignUpController } from '../../../../../../src/presentation/controllers/login/signup/SignupController';
+import { EmailInUseError, MissingParamError, ServerError } from '../../../../../../src/presentation/errors';
 import {
     IAccountModel,
     IAddAccount,
@@ -8,8 +8,8 @@ import {
     IValidation,
     IAuthentication,
     IAuthenticationModel,
-} from '../../../../../src/presentation/controllers/login/signup/SignupControllerProtocols';
-import { badRequest, forbidden, serverError } from '../../../../../src/presentation/helpers/http/HttpHelpers';
+} from '../../../../../../src/presentation/controllers/login/signup/SignupControllerProtocols';
+import { badRequest, forbidden, serverError } from '../../../../../../src/presentation/helpers/http/HttpHelpers';
 
 const makeValidation = (): IValidation => {
     class ValidationStub implements IValidation {
