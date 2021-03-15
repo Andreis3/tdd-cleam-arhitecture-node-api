@@ -15,7 +15,6 @@ const makeController = (): IController => {
             return Promise.resolve(httpResponse);
         }
     }
-
     return new ControllerStub();
 };
 
