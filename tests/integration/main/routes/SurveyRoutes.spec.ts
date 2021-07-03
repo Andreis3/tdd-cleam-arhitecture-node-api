@@ -18,7 +18,7 @@ describe('Survey Routes', () => {
     });
 
     describe('POST /survey', () => {
-        test('Should return 200 on signup', async () => {
+        test('Should return 204 on add survey success', async () => {
             await request(app)
                 .post('/api/survey')
                 .send({
