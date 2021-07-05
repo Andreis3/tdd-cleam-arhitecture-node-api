@@ -1,6 +1,6 @@
 import { ILoadAccountByToken } from '../../domain/use-cases/ILoadAccountByToken';
 import { AccessDeniedError } from '../errors';
-import { forbidden } from '../helpers/http/HttpHelpers';
+import { forbidden, ok } from '../helpers/http/HttpHelpers';
 import { IHttpRequest, IHttpResponse, IMiddleware } from '../protocols';
 
 export class AuthMiddleware implements IMiddleware {
@@ -10,7 +10,11 @@ export class AuthMiddleware implements IMiddleware {
         const accessToken = httpRequest.headers?.['x-access-token'];
 
         if (accessToken) {
-            await this.loadAccountByToken.load(accessToken);
+            const account = await this.loadAccountByToken.load(accessToken);
+
+            if (account) {
+                return ok({ accountId: account.id });
+            }
         }
 
         return forbidden(new AccessDeniedError());
