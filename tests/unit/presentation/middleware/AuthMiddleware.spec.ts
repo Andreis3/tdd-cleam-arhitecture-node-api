@@ -1,4 +1,4 @@
-import { forbidden } from '../../../../src/presentation/helpers/http/HttpHelpers';
+import { forbidden, ok } from '../../../../src/presentation/helpers/http/HttpHelpers';
 import { AccessDeniedError } from '../../../../src/presentation/errors';
 import { AuthMiddleware } from '../../../../src/presentation/middleware/AuthMiddleware';
 import { ILoadAccountByToken } from '../../../../src/domain/use-cases/ILoadAccountByToken';
@@ -66,12 +66,18 @@ describe('Auth Middleware', () => {
     test('Should return 403 if LoadAccountByToken returns null', async () => {
         const { sut, loadAccountByTokenStub } = makeSut();
 
-        const loadSpy = jest
-            .spyOn(loadAccountByTokenStub, 'load')
-            .mockReturnValue(new Promise(resolve => resolve(null)));
+        jest.spyOn(loadAccountByTokenStub, 'load').mockReturnValue(new Promise(resolve => resolve(null)));
 
-        const httpResponse = await sut.handle({});
+        const httpResponse = await sut.handle(makeFakeRequest());
 
         expect(httpResponse).toEqual(forbidden(new AccessDeniedError()));
+    });
+
+    test('Should return 200 if LoadAccountByToken returns an account', async () => {
+        const { sut } = makeSut();
+
+        const httpResponse = await sut.handle(makeFakeRequest());
+
+        expect(httpResponse).toEqual(ok({ accountId: 'any_id' }));
     });
 });
