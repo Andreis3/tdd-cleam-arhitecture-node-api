@@ -3,12 +3,19 @@ import { AccessDeniedError } from '../../../../src/presentation/errors';
 import { AuthMiddleware } from '../../../../src/presentation/middleware/AuthMiddleware';
 import { ILoadAccountByToken } from '../../../../src/domain/use-cases/ILoadAccountByToken';
 import { IAccountModel } from '../../../../src/domain/models/IAccountModel';
+import { IHttpRequest } from '../../../../src/presentation/protocols';
 
 const makeFakeAccount = (): IAccountModel => ({
     id: 'any_id',
     name: 'any_name',
     email: 'any_email@mail.com',
     password: 'hashed_password',
+});
+
+const makeFakeRequest = (): IHttpRequest => ({
+    headers: {
+        'x-access-token': 'any_token',
+    },
 });
 
 interface ISutTypes {
@@ -51,11 +58,7 @@ describe('Auth Middleware', () => {
 
         const loadSpy = jest.spyOn(loadAccountByTokenStub, 'load');
 
-        await sut.handle({
-            headers: {
-                'x-access-token': 'any_token',
-            },
-        });
+        await sut.handle(makeFakeRequest());
 
         expect(loadSpy).toHaveBeenCalledWith('any_token');
     });
