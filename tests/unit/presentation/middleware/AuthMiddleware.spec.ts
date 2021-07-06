@@ -1,9 +1,11 @@
 import { forbidden, ok, serverError } from '../../../../src/presentation/helpers/http/HttpHelpers';
 import { AccessDeniedError } from '../../../../src/presentation/errors';
 import { AuthMiddleware } from '../../../../src/presentation/middleware/AuthMiddleware';
-import { ILoadAccountByToken } from '../../../../src/domain/use-cases/ILoadAccountByToken';
-import { IAccountModel } from '../../../../src/domain/models/IAccountModel';
-import { IHttpRequest } from '../../../../src/presentation/protocols';
+import {
+    ILoadAccountByToken,
+    IHttpRequest,
+    IAccountModel,
+} from '../../../../src/presentation/middleware/AuthMiddlewareProtocols';
 
 const makeFakeAccount = (): IAccountModel => ({
     id: 'any_id',
