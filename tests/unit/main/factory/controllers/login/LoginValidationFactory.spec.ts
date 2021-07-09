@@ -3,7 +3,7 @@ import {
     RequiredFieldValidation,
     ValidationComposite,
 } from '../../../../../../src/validation/validators';
-import { makeLoginValidation } from '../../../../../../src/main/factory/controllers/login/LoginValidationFactory';
+import { makeLoginValidation } from '../../../../../../src/main/factory/controllers/login/login/LoginValidationFactory';
 import { IValidation } from '../../../../../../src/presentation/protocols/IValidation';
 import { IEmailValidator } from '../../../../../../src/presentation/protocols';
 
