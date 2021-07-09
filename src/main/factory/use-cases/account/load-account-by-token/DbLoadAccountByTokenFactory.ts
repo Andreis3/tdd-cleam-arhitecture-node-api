@@ -1,0 +1,12 @@
+import { DbLoadAccountByToken } from '../../../../../data/use-cases/load-account-by-token/DbLoadAccountByToken';
+import { ILoadAccountByToken } from '../../../../../domain/use-cases/ILoadAccountByToken';
+import { JwtAdapter } from '../../../../../infra/cryptography/jwt-adapter/JwtAdapter';
+import { AccountMongoRepository } from '../../../../../infra/db/mongodb/account/AccountMongoRepository';
+import env from '../../../../config/env';
+
+export const makeDbLoadAccountByToken = (): ILoadAccountByToken => {
+    const jwtAdapter = new JwtAdapter(env.jwtSecret);
+    const accountMongoRepository = new AccountMongoRepository();
+
+    return new DbLoadAccountByToken(jwtAdapter, accountMongoRepository);
+};
