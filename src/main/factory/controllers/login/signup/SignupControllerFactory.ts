@@ -3,7 +3,7 @@ import { IController } from '../../../../../presentation/protocols';
 import { makeSignupValidation } from './SignupValidationFactory';
 import { makeDbAuthentication } from '../../../use-cases/account/db-authentication/DbAuthenticateFactory';
 import { makeDbAddAccount } from '../../../use-cases/account/add-account/DbAddAccountFactory';
-import { makeLogControllerDecorator } from '../../../decorators/logs/LogControllerDecoratorFactory';
+import { makeLogControllerDecorator } from '../../../../factory/decorators/logs/LogControllerDecoratorFactory';
 
 export const makeSignupController = (): IController => {
     const controller = new SignUpController(makeDbAddAccount(), makeSignupValidation(), makeDbAuthentication());
