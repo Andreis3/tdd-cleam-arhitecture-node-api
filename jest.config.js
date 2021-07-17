@@ -10,6 +10,9 @@ module.exports = {
         '!<rootDir>/src/presentation/middleware/AuthMiddlewareProtocols.ts',
         '!<rootDir>/src/presentation/controllers/login/signup/SignupControllerProtocols.ts',
         '!<rootDir>/src/presentation/controllers/login/login/LoginControllerProtocols.ts',
+        '!<rootDir>/src/presentation/controllers/survey/add-survey/AddSurveyControllerProtocols.ts',
+        '!<rootDir>/src/data/use-cases/add-survey/DbAddSurveyProtocols.ts',
+        '!<rootDir>/src/data/protocols/db/survey/DbAddSurveyProtocols.ts',
     ],
 
     // The directory where Jest should output its coverage files
