@@ -13,7 +13,8 @@ export class AccountMongoRepository
         IAddAccountRepository,
         ILoadAccountByEmailRepository,
         IUpdateAccessTokenRepository,
-        ILoadAccountByTokenRepository {
+        ILoadAccountByTokenRepository
+{
     async add(accountData: IAddAccountModel): Promise<IAccountModel> {
         const accountCollection = await MongoHelper.getCollection('accounts');
         const result = await accountCollection.insertOne(accountData);
