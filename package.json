@@ -1,6 +1,6 @@
 {
   "name": "tdd-clean-architecture-node-api",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "main": "index.js",
   "author": "Andrei Santos <andrei.as3@hotmail.com>",
   "license": "MIT",
