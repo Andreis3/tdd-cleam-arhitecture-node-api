@@ -3,3 +3,4 @@ dist
 coverage
 ./data
 .eslintrc.js
+jest.config.js
