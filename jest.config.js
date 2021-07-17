@@ -23,6 +23,8 @@ module.exports = {
 
     // The test environment that will be used for testing
     testEnvironment: 'node',
+    preset: '@shelf/jest-mongodb',
+    // watchPathIgnorePatterns: ['globalConfig'],
 
     // A map from regular expressions to paths to transformers
     transform: {
@@ -34,6 +36,4 @@ module.exports = {
         '<rootDir>/src/presentation/protocols/index.ts',
         '<rootDir>/src/presentation/controllers/signup/signupProtocols.ts',
     ],
-    watchPathIgnorePatterns: ['globalConfig'],
-    preset: '@shelf/jest-mongodb',
 };
