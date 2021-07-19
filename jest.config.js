@@ -13,6 +13,7 @@ module.exports = {
         '!<rootDir>/src/presentation/controllers/survey/add-survey/AddSurveyControllerProtocols.ts',
         '!<rootDir>/src/data/use-cases/add-survey/DbAddSurveyProtocols.ts',
         '!<rootDir>/src/data/protocols/db/survey/DbAddSurveyProtocols.ts',
+        '!<rootDir>/src/presentation/controllers/survey/load-survey/LoadSurveyControllerProtocols.ts',
     ],
 
     // The directory where Jest should output its coverage files
