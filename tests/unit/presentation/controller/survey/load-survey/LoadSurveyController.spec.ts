@@ -1,5 +1,5 @@
 import MockDate from 'mockdate';
-import { ok } from '../../../../../../src/presentation/helpers/http/HttpHelpers';
+import { ok, serverError } from '../../../../../../src/presentation/helpers/http/HttpHelpers';
 
 import { LoadSurveysController } from '.././../../../../../src/presentation/controllers/survey/load-survey/LoadSurveyController';
 import {
@@ -83,5 +83,14 @@ describe('LoadSurveys Controller', () => {
         const httpResponse = await sut.handle({});
 
         expect(httpResponse).toEqual(ok(makeFakeSurveys()));
+    });
+
+    test('Should return 500 if LoadSurveys throws', async () => {
+        const { sut, loadSurveysStub } = makeSut();
+
+        jest.spyOn(loadSurveysStub, 'load').mockReturnValue(new Promise((resolve, reject) => reject(new Error())));
+        const httpResponse = await sut.handle({});
+
+        expect(httpResponse).toEqual(serverError(new Error()));
     });
 });
