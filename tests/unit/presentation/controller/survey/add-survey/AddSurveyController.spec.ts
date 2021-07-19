@@ -1,3 +1,5 @@
+import MockDate from 'mockdate';
+
 import { AddSurveyController } from '../../../../../../src/presentation/controllers/survey/add-survey/AddSurveyController';
 import {
     IHttpRequest,
@@ -22,6 +24,7 @@ const makeFakeRequest = (): IHttpRequest => ({
                 answer: 'any answer',
             },
         ],
+        date: new Date(),
     },
 });
 
@@ -56,6 +59,14 @@ const makeAddSurvey = (): IAddSurvey => {
 };
 
 describe('AddSurvey Controller', () => {
+    beforeAll(() => {
+        MockDate.set(new Date());
+    });
+
+    afterAll(() => {
+        MockDate.reset();
+    });
+
     test('Should call Validation with correct values', async () => {
         const { sut, validationStub } = makeSut();
 

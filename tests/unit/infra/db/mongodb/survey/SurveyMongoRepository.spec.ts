@@ -1,3 +1,5 @@
+import MockDate from 'mockdate';
+
 import { MongoHelper } from '../../../../../../src/infra/db/mongodb/helpers/MongoHelpers';
 import { SurveyMongoRepository } from '../../../../../../src/infra/db/mongodb/survey/SurveyMongoRepository';
 import { Collection } from 'mongodb';
@@ -6,9 +8,11 @@ let surveyCollection: Collection;
 
 describe('Survey Mongo Repository', () => {
     beforeAll(async () => {
+        MockDate.set(new Date());
         await MongoHelper.connect(process.env.MONGO_URL);
     });
     afterAll(async () => {
+        MockDate.reset();
         await MongoHelper.disconnect();
     });
     beforeEach(async () => {
@@ -33,6 +37,7 @@ describe('Survey Mongo Repository', () => {
                     answer: 'other_answer',
                 },
             ],
+            date: new Date(),
         });
 
         const survey = await surveyCollection.findOne({ question: 'any_question' });
