@@ -1,5 +1,5 @@
 import { ILoadSurveys } from '../../../../domain/use-cases/ILoadSurveys';
-import { ok, serverError } from '../../../helpers/http/HttpHelpers';
+import { noContent, ok, serverError } from '../../../helpers/http/HttpHelpers';
 import { IController, IHttpRequest, IHttpResponse } from '../load-survey/LoadSurveyControllerProtocols';
 
 export class LoadSurveysController implements IController {
@@ -7,7 +7,7 @@ export class LoadSurveysController implements IController {
     async handle(httpRequest: IHttpRequest): Promise<IHttpResponse> {
         try {
             const surveys = await this.loadSurveys.load();
-            return ok(surveys);
+            return surveys.length ? ok(surveys) : noContent();
         } catch (error) {
             return serverError(error);
         }
