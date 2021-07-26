@@ -28,19 +28,34 @@ const makeFakeSurveys = (): ISurveyModel[] => {
         },
     ];
 };
+interface ISutTypes {
+    sut: DbLoadSurveys;
+    loadSurveysRepositoryStub: ILoadSurveysRepository;
+}
+
+const makeLoadSurveysRepository = (): ILoadSurveysRepository => {
+    class LoadSurveysRepositoryStub implements ILoadSurveysRepository {
+        async loadAll(): Promise<ISurveyModel[]> {
+            return new Promise(resolve => resolve(makeFakeSurveys()));
+        }
+    }
+
+    return new LoadSurveysRepositoryStub();
+};
+const makeSut = (): ISutTypes => {
+    const loadSurveysRepositoryStub = makeLoadSurveysRepository();
+    const sut = new DbLoadSurveys(loadSurveysRepositoryStub);
+    return {
+        sut,
+        loadSurveysRepositoryStub,
+    };
+};
+
 describe('DbLoadSurveys', () => {
     test('Should call LoadSurveysRepository', async () => {
-        class LoadSurveysRepositoryStub implements ILoadSurveysRepository {
-            async loadAll(): Promise<ISurveyModel[]> {
-                return new Promise(resolve => resolve(makeFakeSurveys()));
-            }
-        }
-
-        const loadSurveysRepositoryStub = new LoadSurveysRepositoryStub();
+        const { sut, loadSurveysRepositoryStub } = makeSut();
         const loadAllSpy = jest.spyOn(loadSurveysRepositoryStub, 'loadAll');
-        const sut = new DbLoadSurveys(loadSurveysRepositoryStub);
         await sut.load();
-
         expect(loadAllSpy).toHaveBeenCalled();
     });
 });
