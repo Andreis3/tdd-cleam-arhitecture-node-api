@@ -112,6 +112,6 @@ describe('DbLoadAccountByToken Usecase', () => {
         );
         const promise = sut.load('any_token', 'any_role');
 
-        expect(promise).rejects.toThrow();
+        await expect(promise).rejects.toThrow();
     });
 });
