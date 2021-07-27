@@ -2,6 +2,8 @@ import { DbLoadSurveys } from '../../../../../src/data/use-cases/load-surveys/Db
 import { ILoadSurveysRepository } from '../../../../../src/data/protocols/db/survey/ILoadSurveysRepository';
 import { ISurveyModel } from '../../../../../src/domain/models/ISurveyModel';
 
+const mockDate = new Date();
+
 const makeFakeSurveys = (): ISurveyModel[] => {
     return [
         {
@@ -13,7 +15,7 @@ const makeFakeSurveys = (): ISurveyModel[] => {
                     answer: 'any_answer',
                 },
             ],
-            date: new Date(),
+            date: mockDate,
         },
         {
             id: 'other_id',
@@ -24,10 +26,11 @@ const makeFakeSurveys = (): ISurveyModel[] => {
                     answer: 'other_answer',
                 },
             ],
-            date: new Date(),
+            date: mockDate,
         },
     ];
 };
+
 interface ISutTypes {
     sut: DbLoadSurveys;
     loadSurveysRepositoryStub: ILoadSurveysRepository;
@@ -42,6 +45,7 @@ const makeLoadSurveysRepository = (): ILoadSurveysRepository => {
 
     return new LoadSurveysRepositoryStub();
 };
+
 const makeSut = (): ISutTypes => {
     const loadSurveysRepositoryStub = makeLoadSurveysRepository();
     const sut = new DbLoadSurveys(loadSurveysRepositoryStub);
@@ -57,5 +61,11 @@ describe('DbLoadSurveys', () => {
         const loadAllSpy = jest.spyOn(loadSurveysRepositoryStub, 'loadAll');
         await sut.load();
         expect(loadAllSpy).toHaveBeenCalled();
+    });
+
+    test('Should return a list of Surveys on success', async () => {
+        const { sut } = makeSut();
+        const surveys = await sut.load();
+        expect(surveys).toEqual(makeFakeSurveys());
     });
 });
