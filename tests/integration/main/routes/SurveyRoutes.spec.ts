@@ -8,22 +8,22 @@ import env from '../../../../src/main/config/env';
 let surveyCollection: Collection;
 let accountCollection: Collection;
 
-describe('Survey Routes', () => {
-    beforeAll(async () => {
-        await MongoHelper.connect(process.env.MONGO_URL);
-    });
-    afterAll(async () => {
-        await MongoHelper.disconnect();
-    });
-    beforeEach(async () => {
-        surveyCollection = await MongoHelper.getCollection('survey');
-        await surveyCollection.deleteMany({});
+beforeAll(async () => {
+    await MongoHelper.connect(process.env.MONGO_URL);
+});
+afterAll(async () => {
+    await MongoHelper.disconnect();
+});
+beforeEach(async () => {
+    surveyCollection = await MongoHelper.getCollection('survey');
+    await surveyCollection.deleteMany({});
 
-        accountCollection = await MongoHelper.getCollection('accounts');
-        await surveyCollection.deleteMany({});
-    });
+    accountCollection = await MongoHelper.getCollection('accounts');
+    await surveyCollection.deleteMany({});
+});
 
-    describe('POST /survey', () => {
+describe('Main :: Routes :: SurveyRoutes', () => {
+    describe('POST :: /survey', () => {
         test('Should return 403 on add survey without accessToken', async () => {
             await request(app)
                 .post('/api/survey')
@@ -77,6 +77,12 @@ describe('Survey Routes', () => {
                     ],
                 })
                 .expect(204);
+        });
+    });
+
+    describe('GET :: /surveys', () => {
+        test('Should return 403 on load survey without accessToken', async () => {
+            await request(app).get('/api/survey').expect(403);
         });
     });
 });
