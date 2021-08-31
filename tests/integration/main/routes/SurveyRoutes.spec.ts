@@ -112,5 +112,11 @@ describe('Main :: Routes :: SurveyRoutes', () => {
 
             await request(app).get('/api/survey').set('x-access-token', accessToken).expect(200);
         });
+
+        test('Should return 204 on load survey with valid accessToken', async () => {
+            const accessToken = await makeAccessToken();
+
+            await request(app).get('/api/survey').set('x-access-token', accessToken).expect(204);
+        });
     });
 });
