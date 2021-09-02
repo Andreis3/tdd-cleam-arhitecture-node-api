@@ -1,7 +1,7 @@
 import MockDate from 'mockdate';
 
-import { MongoHelper } from '../../../../../../src/infra/db/mongodb/helpers/MongoHelpers';
-import { SurveyMongoRepository } from '../../../../../../src/infra/db/mongodb/survey/SurveyMongoRepository';
+import { MongoHelper } from '@/infra/db/mongodb/helpers/MongoHelpers';
+import { SurveyMongoRepository } from '@/infra/db/mongodb/survey/SurveyMongoRepository';
 import { Collection } from 'mongodb';
 
 let surveyCollection: Collection;

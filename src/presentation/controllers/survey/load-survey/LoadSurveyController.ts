@@ -1,6 +1,10 @@
-import { ILoadSurveys } from '../../../../domain/use-cases/ILoadSurveys';
-import { noContent, ok, serverError } from '../../../helpers/http/HttpHelpers';
-import { IController, IHttpRequest, IHttpResponse } from '../load-survey/LoadSurveyControllerProtocols';
+import { ILoadSurveys } from '@/domain/use-cases/ILoadSurveys';
+import { noContent, ok, serverError } from '@/presentation/helpers/http/HttpHelpers';
+import {
+    IController,
+    IHttpRequest,
+    IHttpResponse,
+} from '@/presentation/controllers/survey/load-survey/LoadSurveyControllerProtocols';
 
 export class LoadSurveysController implements IController {
     constructor(private readonly loadSurveys: ILoadSurveys) {}

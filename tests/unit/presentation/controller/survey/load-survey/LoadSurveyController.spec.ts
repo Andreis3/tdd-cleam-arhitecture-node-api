@@ -1,11 +1,11 @@
 import MockDate from 'mockdate';
-import { noContent, ok, serverError } from '../../../../../../src/presentation/helpers/http/HttpHelpers';
+import { noContent, ok, serverError } from '@/presentation/helpers/http/HttpHelpers';
 
-import { LoadSurveysController } from '.././../../../../../src/presentation/controllers/survey/load-survey/LoadSurveyController';
+import { LoadSurveysController } from '@/presentation/controllers/survey/load-survey/LoadSurveyController';
 import {
     ILoadSurveys,
     ISurveyModel,
-} from '.././../../../../../src/presentation/controllers/survey/load-survey/LoadSurveyControllerProtocols';
+} from '@/presentation/controllers/survey/load-survey/LoadSurveyControllerProtocols';
 
 const makeFakeSurveys = (): ISurveyModel[] => {
     return [

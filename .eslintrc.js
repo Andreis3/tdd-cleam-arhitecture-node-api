@@ -14,7 +14,7 @@ globals: {
   parserOptions: {
     ecmaVersion: 2019,
     sourceType: "module",
-    project: "./tsconfig.eslint.json",
+    project: "./tsconfig.json",
     ecmaFeatures: {
       jsx: true // Allows for the parsing of JSX
     }

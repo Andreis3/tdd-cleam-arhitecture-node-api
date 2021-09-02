@@ -1,7 +1,7 @@
-import { LogControllerDecorator } from '../../../../src/main/decorators/logs/LogControllerDecorator';
-import { IController, IHttpRequest, IHttpResponse } from '../../../../src/presentation/protocols';
-import { serverError } from '../../../../src/presentation/helpers/http/HttpHelpers';
-import { ILogErrorRepository } from '../../../../src/data/protocols/db/log/ILogErrorRepository';
+import { LogControllerDecorator } from '@/main/decorators/logs/LogControllerDecorator';
+import { IController, IHttpRequest, IHttpResponse } from '@/presentation/protocols';
+import { serverError } from '@/presentation/helpers/http/HttpHelpers';
+import { ILogErrorRepository } from '@/data/protocols/db/log/ILogErrorRepository';
 
 const makeController = (): IController => {
     class ControllerStub implements IController {

@@ -1,6 +1,11 @@
-import { IHttpRequest, IHttpResponse, IMiddleware, ILoadAccountByToken } from './AuthMiddlewareProtocols';
-import { forbidden, ok, serverError } from '../helpers/http/HttpHelpers';
-import { AccessDeniedError } from '../errors';
+import {
+    IHttpRequest,
+    IHttpResponse,
+    IMiddleware,
+    ILoadAccountByToken,
+} from '@/presentation/middleware/AuthMiddlewareProtocols';
+import { forbidden, ok, serverError } from '@/presentation/helpers/http/HttpHelpers';
+import { AccessDeniedError } from '@/presentation/errors';
 
 export class AuthMiddleware implements IMiddleware {
     constructor(private readonly loadAccountByToken: ILoadAccountByToken, private readonly role?: string) {}

@@ -1,7 +1,7 @@
-import { DbLoadAccountByToken } from '../../../../../src/data/use-cases/load-account-by-token/DbLoadAccountByToken';
-import { IDecrypter } from '../../../../../src/data/protocols/cryptography/IDecrypter';
-import { ILoadAccountByTokenRepository } from '../../../../../src/data/protocols/db/account/ILoadAccountByTokenRepository';
-import { IAccountModel } from '../../../../../src/domain/models/IAccountModel';
+import { DbLoadAccountByToken } from '@/data/use-cases/load-account-by-token/DbLoadAccountByToken';
+import { IDecrypter } from '@/data/protocols/cryptography/IDecrypter';
+import { ILoadAccountByTokenRepository } from '@/data/protocols/db/account/ILoadAccountByTokenRepository';
+import { IAccountModel } from '@/domain/models/IAccountModel';
 
 const makeFakeAccount = (): IAccountModel => ({
     id: 'any_id',

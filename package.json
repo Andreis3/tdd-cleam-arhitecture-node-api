@@ -1,6 +1,6 @@
 {
   "name": "tdd-clean-architecture-node-api",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "main": "index.js",
   "author": "Andrei Santos <andrei.as3@hotmail.com>",
   "license": "MIT",
@@ -30,6 +30,7 @@
     "express": "^4.17.1",
     "fast-glob": "^3.2.4",
     "jsonwebtoken": "^8.5.1",
+    "module-alias": "^2.2.2",
     "mongodb": "^3.6.5",
     "validator": "^13.1.1"
   },
@@ -69,5 +70,8 @@
   },
   "engines": {
     "node": "15.x"
+  },
+  "_moduleAliases": {
+    "@": "dist"
   }
 }

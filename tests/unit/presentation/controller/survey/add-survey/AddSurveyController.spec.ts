@@ -1,13 +1,13 @@
 import MockDate from 'mockdate';
 
-import { AddSurveyController } from '../../../../../../src/presentation/controllers/survey/add-survey/AddSurveyController';
+import { AddSurveyController } from '@/presentation/controllers/survey/add-survey/AddSurveyController';
 import {
     IHttpRequest,
     IValidation,
     IAddSurvey,
     IAddSurveyModel,
-} from '../../../../../../src/presentation/controllers/survey/add-survey/AddSurveyControllerProtocols';
-import { badRequest, noContent, serverError } from '../../../../../../src/presentation/helpers/http/HttpHelpers';
+} from '@/presentation/controllers/survey/add-survey/AddSurveyControllerProtocols';
+import { badRequest, noContent, serverError } from '@/presentation/helpers/http/HttpHelpers';
 
 interface ISutTypes {
     sut: AddSurveyController;

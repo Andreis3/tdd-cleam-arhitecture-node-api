@@ -1,4 +1,4 @@
-import { DbAuthentication } from '../../../../../src/data/use-cases/authentication/DbAuthenticate';
+import { DbAuthentication } from '@/data/use-cases/authentication/DbAuthenticate';
 import {
     IHashComparer,
     IEncrypter,
@@ -6,7 +6,7 @@ import {
     IUpdateAccessTokenRepository,
     IAccountModel,
     IAuthenticationModel,
-} from '../../../../../src/data/use-cases/authentication/DbAuthenticationProtocols';
+} from '@/data/use-cases/authentication/DbAuthenticationProtocols';
 
 const makeFakeAccount = (): IAccountModel => ({
     id: 'any_id',

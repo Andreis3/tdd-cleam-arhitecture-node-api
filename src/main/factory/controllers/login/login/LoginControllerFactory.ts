@@ -1,8 +1,8 @@
-import { makeLoginValidation } from './LoginValidationFactory';
-import { IController } from '../../../../../presentation/protocols';
-import { LoginController } from '../../../../../presentation/controllers/login/login/LoginController';
-import { makeDbAuthentication } from '../../../use-cases/account/db-authentication/DbAuthenticateFactory';
-import { makeLogControllerDecorator } from '../../../decorators/logs/LogControllerDecoratorFactory';
+import { makeLoginValidation } from '@/main/factory/controllers/login/login/LoginValidationFactory';
+import { IController } from '@/presentation/protocols';
+import { LoginController } from '@/presentation/controllers/login/login/LoginController';
+import { makeDbAuthentication } from '@/main/factory/use-cases/account/db-authentication/DbAuthenticateFactory';
+import { makeLogControllerDecorator } from '@/main/factory/decorators/logs/LogControllerDecoratorFactory';
 
 export const makeLoginController = (): IController => {
     const controller = new LoginController(makeLoginValidation(), makeDbAuthentication());

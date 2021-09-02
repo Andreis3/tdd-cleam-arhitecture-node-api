@@ -1,3 +1,3 @@
-export * from './BodyParser';
-export * from './ContentType';
-export * from './Cors';
+export * from '@/main/middlewares/BodyParser';
+export * from '@/main/middlewares/ContentType';
+export * from '@/main/middlewares/Cors';

@@ -1,5 +1,11 @@
-import { badRequest, noContent, serverError } from '../../../helpers/http/HttpHelpers';
-import { IController, IHttpRequest, IHttpResponse, IValidation, IAddSurvey } from './AddSurveyControllerProtocols';
+import { badRequest, noContent, serverError } from '@/presentation/helpers/http/HttpHelpers';
+import {
+    IController,
+    IHttpRequest,
+    IHttpResponse,
+    IValidation,
+    IAddSurvey,
+} from '@/presentation/controllers/survey/add-survey/AddSurveyControllerProtocols';
 
 export class AddSurveyController implements IController {
     constructor(private readonly validation: IValidation, private readonly addSurvey: IAddSurvey) {}

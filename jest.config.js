@@ -17,7 +17,7 @@ module.exports = {
     ],
 
     // The directory where Jest should output its coverage files
-    coverageDirectory: 'tests/coverage',
+    coverageDirectory: 'coverage',
 
     // Indicates which provider should be used to instrument code for coverage
     // coverageProvider: 'v8',
@@ -37,4 +37,7 @@ module.exports = {
         '<rootDir>/src/presentation/protocols/index.ts',
         '<rootDir>/src/presentation/controllers/signup/signupProtocols.ts',
     ],
+    moduleNameMapper: {
+      '@/(.*)': '<rootDir>src/$1'
+    }
 };

@@ -1,6 +1,6 @@
-import { MissingParamError } from '../../../../../src/presentation/errors';
-import { IValidation } from '../../../../../src/presentation/protocols/IValidation';
-import { ValidationComposite } from '../../../../../src/validation/validators/ValidationComposite';
+import { MissingParamError } from '@/presentation/errors';
+import { IValidation } from '@/presentation/protocols/IValidation';
+import { ValidationComposite } from '@/validation/validators/ValidationComposite';
 
 const makeValidation = (): IValidation => {
     class ValidationStub implements IValidation {

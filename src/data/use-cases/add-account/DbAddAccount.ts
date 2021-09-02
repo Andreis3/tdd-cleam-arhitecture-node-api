@@ -5,7 +5,7 @@ import {
     IHasher,
     IAddAccountRepository,
     ILoadAccountByEmailRepository,
-} from './DbAccountProtocols';
+} from '@/data/use-cases/add-account/DbAccountProtocols';
 
 export class DbAddAccount implements IAddAccount {
     constructor(

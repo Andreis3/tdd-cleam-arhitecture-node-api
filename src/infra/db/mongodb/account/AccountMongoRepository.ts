@@ -1,12 +1,12 @@
-import { IAddAccountRepository } from '../../../../data/protocols/db/account/IAddAccountRepository';
-import { IAddAccountModel } from '../../../../domain/use-cases/IAddAccount';
-import { IAccountModel } from '../../../../domain/models/IAccountModel';
-import { MongoHelper } from '../helpers/MongoHelpers';
+import { IAddAccountRepository } from '@/data/protocols/db/account/IAddAccountRepository';
+import { IAddAccountModel } from '@/domain/use-cases/IAddAccount';
+import { IAccountModel } from '@/domain/models/IAccountModel';
+import { MongoHelper } from '@/infra/db/mongodb/helpers/MongoHelpers';
 import {
     ILoadAccountByEmailRepository,
     IUpdateAccessTokenRepository,
-} from '../../../../data/use-cases/authentication/DbAuthenticationProtocols';
-import { ILoadAccountByTokenRepository } from '../../../../data/protocols/db/account/ILoadAccountByTokenRepository';
+} from '@/data/use-cases/authentication/DbAuthenticationProtocols';
+import { ILoadAccountByTokenRepository } from '@/data/protocols/db/account/ILoadAccountByTokenRepository';
 
 export class AccountMongoRepository
     implements

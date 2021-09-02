@@ -1,5 +1,5 @@
-import { MongoHelper } from '../../../../../../src/infra/db/mongodb/helpers/MongoHelpers';
-import { AccountMongoRepository } from '../../../../../../src/infra/db/mongodb/account/AccountMongoRepository';
+import { MongoHelper } from '@/infra/db/mongodb/helpers/MongoHelpers';
+import { AccountMongoRepository } from '@/infra/db/mongodb/account/AccountMongoRepository';
 import { Collection } from 'mongodb';
 
 let accountCollection: Collection;
