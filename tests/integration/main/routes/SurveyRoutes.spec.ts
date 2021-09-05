@@ -88,7 +88,7 @@ describe('Main :: Routes :: SurveyRoutes', () => {
 
     describe('GET :: /surveys', () => {
         test('Should return 403 on load survey without accessToken', async () => {
-            await request(app).get('/api/survey').expect(403);
+            await request(app).get('/api/surveys').expect(403);
         });
 
         test('Should return 200 on load survey with valid accessToken', async () => {
@@ -110,13 +110,13 @@ describe('Main :: Routes :: SurveyRoutes', () => {
                 },
             ]);
 
-            await request(app).get('/api/survey').set('x-access-token', accessToken).expect(200);
+            await request(app).get('/api/surveys').set('x-access-token', accessToken).expect(200);
         });
 
         test('Should return 204 on load survey with valid accessToken', async () => {
             const accessToken = await makeAccessToken();
 
-            await request(app).get('/api/survey').set('x-access-token', accessToken).expect(204);
+            await request(app).get('/api/surveys').set('x-access-token', accessToken).expect(204);
         });
     });
 });

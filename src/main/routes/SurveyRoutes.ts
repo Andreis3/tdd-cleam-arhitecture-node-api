@@ -7,5 +7,5 @@ import { auth } from '@/main/middlewares/Auth';
 
 export default (router: Router): void => {
     router.post('/survey', adminAuth, adapterRoute(makeAddSurveyController()));
-    router.get('/survey', auth, adapterRoute(makeLoadSurveyController()));
+    router.get('/surveys', auth, adapterRoute(makeLoadSurveyController()));
 };
