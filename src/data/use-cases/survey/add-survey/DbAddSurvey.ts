@@ -1,4 +1,8 @@
-import { IAddSurvey, IAddSurveyModel, IAddSurveyRepository } from '@/data/use-cases/add-survey/DbAddSurveyProtocols';
+import {
+    IAddSurvey,
+    IAddSurveyModel,
+    IAddSurveyRepository,
+} from '@/data/use-cases/survey/add-survey/DbAddSurveyProtocols';
 
 export class DbAddSurvey implements IAddSurvey {
     constructor(private readonly addSurveyRepository: IAddSurveyRepository) {}

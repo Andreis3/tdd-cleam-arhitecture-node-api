@@ -1,7 +1,10 @@
-import { ILoadSurveyByIdRepository } from '@/data/use-cases/load-survey-by-id/DbLoadSurveyByIdProtocols';
+import { ILoadSurveyByIdRepository } from '@/data/use-cases/survey/load-survey-by-id/DbLoadSurveyByIdProtocols';
 import { ILoadSurveysRepository } from '../../../../data/protocols/db/survey/ILoadSurveysRepository';
-import { IAddSurveyModel, IAddSurveyRepository } from '../../../../data/use-cases/add-survey/DbAddSurveyProtocols';
-import { ISurveyModel } from '../../../../domain/models/ISurveyModel';
+import {
+    IAddSurveyModel,
+    IAddSurveyRepository,
+} from '../../../../data/use-cases/survey/add-survey/DbAddSurveyProtocols';
+import { ISurveyModel } from '../../../../domain/models/survey/ISurveyModel';
 import { MongoHelper } from '../helpers/MongoHelpers';
 
 export class SurveyMongoRepository implements IAddSurveyRepository, ILoadSurveysRepository, ILoadSurveyByIdRepository {

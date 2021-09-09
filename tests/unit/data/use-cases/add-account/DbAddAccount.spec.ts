@@ -1,11 +1,11 @@
-import { DbAddAccount } from '@/data/use-cases/add-account/DbAddAccount';
+import { DbAddAccount } from '@/data/use-cases/account/add-account/DbAddAccount';
 import {
     IHasher,
     IAccountModel,
     IAddAccountModel,
     IAddAccountRepository,
     ILoadAccountByEmailRepository,
-} from '@/data/use-cases/add-account/DbAccountProtocols';
+} from '@/data/use-cases/account/add-account/DbAccountProtocols';
 
 const makeFakeAccount = (): IAccountModel => ({
     id: 'any_id',

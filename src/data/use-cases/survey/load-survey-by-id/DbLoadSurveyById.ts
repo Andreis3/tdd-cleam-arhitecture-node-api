@@ -2,7 +2,7 @@ import {
     ILoadSurveyByIdRepository,
     ISurveyModel,
     ILoadSurveyById,
-} from '@/data/use-cases/load-survey-by-id/DbLoadSurveyByIdProtocols';
+} from '@/data/use-cases/survey/load-survey-by-id/DbLoadSurveyByIdProtocols';
 
 export class DbLoadSurveyById implements ILoadSurveyById {
     constructor(private readonly loadSurveyByIdRepository: ILoadSurveyByIdRepository) {}

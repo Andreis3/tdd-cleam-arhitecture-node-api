@@ -3,8 +3,8 @@ import MockDate from 'mockdate';
 import { MongoHelper } from '@/infra/db/mongodb/helpers/MongoHelpers';
 import { SurveyResultMongoRepository } from '@/infra/db/mongodb/survey-result/SurveyResultMongoRepository';
 import { Collection } from 'mongodb';
-import { ISurveyModel } from '@/domain/models/ISurveyModel';
-import { IAccountModel } from '@/domain/models/IAccountModel';
+import { ISurveyModel } from '@/domain/models/survey/ISurveyModel';
+import { IAccountModel } from '@/domain/models/account/IAccountModel';
 
 let surveyCollection: Collection;
 let surveyResultCollection: Collection;

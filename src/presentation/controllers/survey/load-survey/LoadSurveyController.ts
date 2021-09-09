@@ -1,4 +1,4 @@
-import { ILoadSurveys } from '@/domain/use-cases/ILoadSurveys';
+import { ILoadSurveys } from '@/domain/use-cases/survey/ILoadSurveys';
 import { noContent, ok, serverError } from '@/presentation/helpers/http/HttpHelpers';
 import {
     IController,

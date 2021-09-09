@@ -1,6 +1,6 @@
 import MockDate from 'mockdate';
 
-import { DbAddSurvey } from '@/data/use-cases/add-survey/DbAddSurvey';
+import { DbAddSurvey } from '@/data/use-cases/survey/add-survey/DbAddSurvey';
 import { IAddSurveyModel, IAddSurveyRepository } from '@/data/protocols/db/survey/DbAddSurveyProtocols';
 
 const makeFakeAddSurveyData = (): IAddSurveyModel => ({

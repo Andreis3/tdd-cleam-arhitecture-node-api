@@ -1,6 +1,6 @@
 import { ILoadSurveyByIdRepository } from '@/data/protocols/db/survey/ILoadSurveyByIdRepository';
-import { DbLoadSurveyById } from '@/data/use-cases/load-survey-by-id/DbLoadSurveyById';
-import { ISurveyModel } from '@/domain/models/ISurveyModel';
+import { DbLoadSurveyById } from '@/data/use-cases/survey/load-survey-by-id/DbLoadSurveyById';
+import { ISurveyModel } from '@/domain/models/survey/ISurveyModel';
 import MockDate from 'mockdate';
 
 interface ISutTypes {

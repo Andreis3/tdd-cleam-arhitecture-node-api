@@ -1,6 +1,6 @@
-import { DbLoadSurveys } from '@/data/use-cases/load-surveys/DbLoadSurveys';
+import { DbLoadSurveys } from '@/data/use-cases/survey/load-surveys/DbLoadSurveys';
 import { ILoadSurveysRepository } from '@/data/protocols/db/survey/ILoadSurveysRepository';
-import { ISurveyModel } from '@/domain/models/ISurveyModel';
+import { ISurveyModel } from '@/domain/models/survey/ISurveyModel';
 
 const mockDate = new Date();
 

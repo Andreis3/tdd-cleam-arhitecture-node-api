@@ -1,8 +1,8 @@
 import MockDate from 'mockdate';
 
 import { DbSaveSurveyResult } from '@/data/use-cases/save-survey-result/DbSaveSurveyResult';
-import { ISurveyResultModel } from '@/domain/models/ISurveyResultModel';
-import { ISaveSurveyResultModel } from '@/domain/use-cases/ISaveSurveyResult';
+import { ISurveyResultModel } from '@/domain/models/survey-result/ISurveyResultModel';
+import { ISaveSurveyResultModel } from '@/domain/use-cases/survey-result/ISaveSurveyResult';
 import { ISaveSurveyResultRepository } from '@/data/protocols/db/survey/ISaveSurveyResultRepository';
 
 const makeSaveSurveyResultData = (): ISaveSurveyResultModel => ({

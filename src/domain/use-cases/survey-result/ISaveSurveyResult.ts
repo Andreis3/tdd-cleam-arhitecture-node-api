@@ -1,4 +1,4 @@
-import { ISurveyResultModel } from '@/domain/models/ISurveyResultModel';
+import { ISurveyResultModel } from '@/domain/models/survey-result/ISurveyResultModel';
 
 export type ISaveSurveyResultModel = Omit<ISurveyResultModel, 'id'>;
 

@@ -2,7 +2,7 @@ import {
     ISaveSurveyResultRepository,
     ISurveyResultModel,
 } from '@/data/use-cases/save-survey-result/DbSaveSurveyResultProtocols';
-import { ISaveSurveyResultModel } from '@/domain/use-cases/ISaveSurveyResult';
+import { ISaveSurveyResultModel } from '@/domain/use-cases/survey-result/ISaveSurveyResult';
 import { MongoHelper } from '@/infra/db/mongodb/helpers/MongoHelpers';
 
 export class SurveyResultMongoRepository implements ISaveSurveyResultRepository {
